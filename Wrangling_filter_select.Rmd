@@ -111,10 +111,12 @@ One more useful way to filter a character variable is to base it on part of the 
 
 ```{r}
 movies %>%
-  filter(str_detect(title, "Godzilla"))
+  filter(str_detect(title, "Batman"))
 
 # Which Batman movies are in the dataset?
 ```
+
+After running the code, we found that there are 8 Batman movies in the data.
 
 > A note of caution: This method does not account for misentries and bad data. A mispelled word could cause an observation to escape your filter. This is only scratching the surface of what we can do with strings in R, [here is a nice chapter to get more info on handling strings](https://r4ds.had.co.nz/strings.html)
 
@@ -165,6 +167,7 @@ movies %>%
   drop_na(budget)
 ```
 
+We believe the second code is incorrect and does not run because it is in the wrong order. 
 
 ## Arrange
 
@@ -193,7 +196,12 @@ movies_2000 %>%
 # Using the original 'movies' data, what is the longest movie? What is the oldest movie?
 ```
 
+```{r}
+movies %>%
+  arrange (year)
+```
 
+After running the codes, we found that th longest movie in terms of length was Cure For Insomnia with 5220 minutes. The oldest movie in terms of year was Blacksmith Scene which was made in 1893.
 
 ## Scavenger Hunt
 
@@ -202,8 +210,11 @@ See if you can answer these questions:
 1. How many movies were released in 1995?
 
 ```{r}
-
+movies_1995 <- movies %>%    
+  filter(year== 1995)
 ```
+
+After running the code above, we found that 1248 movies were made in 1995. 
 
 2. Which Comedies with an MPAA rating, over 120 minutes have a rating above 8?
 
