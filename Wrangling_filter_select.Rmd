@@ -237,8 +237,12 @@ After running the code above, we found that there are three movies of Harry Pott
 4. What is the highest budget for a movie that is an Animation or Comedy with at least 100 votes?
 
 ```{r}
-
+movies %>%    
+  filter(Comedy==1|Animation==1,votes >= 100) %>%    
+arrange(desc(budget))
 ```
+
+After running the code above, we found that the highest budget for a comedy or animation movie goes to Wild Wild West with a budget of $170000000.
 
 5. Is your favorite movie in the dataset? What other questions could you ask or answer using `filter()`, `select()`, and `arrange()`?
 
